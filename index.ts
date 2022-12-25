@@ -11,18 +11,17 @@ app.use(cors());
 app.use(bodyparser.json());
 const port = process.env.PORT;
 const uri: any = process.env.URI;
-mongoose
-  .connect(uri)
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
-    });
-  })
-  .catch((err) => console.log(err));
+
 app.use(express.json());
 app.use(
   express.urlencoded({
     extended: false,
   })
 );
+app.listen(port, () => {
+  console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
+});
+app.get("/", (req, res) => {
+  res.send("hello");
+});
 app.use("/", route);
