@@ -18,9 +18,7 @@ app.use(
     extended: false,
   })
 );
-app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
-});
+app.listen(8000);
 app.get("/", (req, res) => {
   res.send("hello");
 });
