@@ -9,16 +9,10 @@ dotenv.config();
 const app: Express = express();
 app.use(cors());
 app.use(bodyparser.json());
-const port = process.env.PORT;
-const uri: any = process.env.URI;
-mongoose
-  .connect(uri)
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
-    });
-  })
-  .catch((err) => console.log(err));
+
+app.listen(() => {
+  console.log(`⚡️[server]: Server is running at http://localhost:5050`);
+});
 app.use(express.json());
 app.use(
   express.urlencoded({
