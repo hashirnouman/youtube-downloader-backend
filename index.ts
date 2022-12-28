@@ -19,4 +19,8 @@ app.use(
     extended: false,
   })
 );
+app.listen(8000);
+app.get("/", (req, res) => {
+  res.send("hello");
+});
 app.use("/", route);
